@@ -1,0 +1,40 @@
+NOTE : ON foreign key (pragma foreign_key = on)
+
+create table stud
+(
+	id NUMBER(10) PRIMARY KEY,
+	name VARCHAR(30) NOT NULL
+);
+
+create table stud_detail
+(
+	id NUMBER(10) REFERENCES stud(id),
+	city VARCHAR(30) NOT NULL,
+	mobile_no NUMBER(11) NOT NULL
+);
+
+insert into stud
+values(1,"Nikunj"),(2,"Roshan"),(3,"Jenil"),(4,"Shiv"),(5,"Amit");
+
+insert into stud_detail
+values(1,"bardoli",9723489234),(2,"surat",9924389745),(3,"Vyara",7932419743),(4,"kadodara",9221984323),(5,"surat",7437264256);
+
+1.Display all record of stud table.
+Ans. select * from stud;
+
+2.Display all record of stud_detail table.
+Ans. select * from stud_detail;
+
+3.Display record of student whose come from city "surat".
+Ans. select s.id , s.name from stud s , stud_detail sd
+     where s.id=sd.id and sd.city like  "surat";
+
+4.Display record of student whose come from city start from b.
+Ans. select s.id , s.name from stud s , stud_detail sd
+     where s.id=sd.id and sd.city like  "b%";
+
+
+
+
+
+
